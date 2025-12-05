@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>九州快樂自由行 — 行程小冊</title>
+  <meta name="description" content="九州 2025.02.20 - 02.25 行程手冊 | Fukuoka · Kumamoto · Yufuin" />
+  <style>
+    :root{--accent:#b13b2a;--muted:#666;--card:#fff;--bg:#f5f5f7}
+    *{box-sizing:border-box}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Noto Sans TC','Segoe UI',Roboto,'Helvetica Neue',Arial;
+      margin:0;color:#222;background:var(--bg)
+    }
+    header{
+      background:linear-gradient(90deg,#fff 0%, #fff 60%, rgba(177,59,42,.06)100%);
+      padding:28px 20px;border-bottom:1px solid #eee
+    }
+    .wrap{max-width:980px;margin:0 auto}
+    .title{display:flex;gap:16px;align-items:center}
+    .cover-img{
+      width:110px;height:110px;border-radius:12px;object-fit:cover;flex-shrink:0;
+      box-shadow:0 6px 18px rgba(0,0,0,.08)
+    }
+    h1{font-size:20px;margin:0}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    nav.toc{
+      display:flex;gap:8px;flex-wrap:wrap;margin:18px 0
+    }
+    .day-btn{
+      background:#fff;border:1px solid #eee;padding:8px 12px;
+      border-radius:10px;cursor:pointer;font-size:14px
+    }
+    .day-btn.active{
+      border-color:var(--accent);
+      box-shadow:0 8px 20px rgba(177,59,42,.06)
+    }
+
+    main{padding:0 20px 20px}
+    .day{
+      display:none;background:var(--card);border-radius:12px;
+      padding:18px;margin-bottom:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.04)
+    }
+    .day.active{display:block}
+    .day h2{margin:0 0 8px;font-size:18px}
+    .day .date-note{font-size:13px;color:var(--muted);margin-bottom:10px}
+
+    .grid{
+      display:grid;grid-template-columns:1fr 240px;gap:14px;align-items:flex-start
+    }
+    .spot{
+      display:flex;gap:12px;padding:12px;border-radius:10px;
+      border:1px solid #f0f0f0;background:#fff;margin-bottom:10px
+    }
+    .spot img{
+      width:120px;height:80px;border-radius:8px;object-fit:cover;flex-shrink:0
+    }
+    .spot .meta{flex:1;min-width:0}
+    .meta h3{margin:0;font-size:15px}
+    .meta p{margin:4px 0;color:var(--muted);font-size:13px}
+    .tagline{font-size:13px;color:var(--accent);margin-top:2px}
+
+    .maps-btn{
+      display:inline-block;padding:6px 10px;border-radius:8px;
+      background:var(--accent);color:#fff;text-decoration:none;
+      font-weight:600;font-size:12px;margin-top:4px
+    }
+
+    aside.summary{
+      padding:12px;border-radius:10px;background:#fff;
+      border:1px solid #f0f0f0
+    }
+    aside.summary h4{
+      margin:0 0 6px;font-size:14px;color:#444
+    }
+    aside.summary ul{
+      padding-left:18px;margin:6px 0 10px;font-size:13px;color:var(--muted)
+    }
+    .pill{
+      display:inline-block;background:#f5e7e4;color:var(--accent);
+      border-radius:999px;padding:3px 10px;font-size:11px;margin:2px 4px 0 0
+    }
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{
+      padding:18px 20px;text-align:center;color:var(--muted);font-size:13px
+    }
+
+    /* 行程總覽區塊 */
+    .overview{
+      margin-bottom:14px;background:#fff;border-radius:12px;
+      padding:14px;border:1px dashed #e0e0e0;font-size:13px;color:var(--muted)
+    }
+    .overview h3{
+      margin:0 0 6px;font-size:14px;color:#444
+    }
+    .overview ul{margin:6px 0;padding-left:18px}
+
+    /* responsive */
+    @media (max-width:760px){
+      .grid{grid-template-columns:1fr;}
+      .cover-img{width:84px;height:84px}
+      .title{align-items:flex-start}
+      .day-btn{padding:8px 10px;font-size:13px}
+    }
+
+    /* print */
+    @media print{
+      body{background:white}
+      header, nav.toc, footer{display:none}
+      .wrap{max-width:100%}
+      .day{page-break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap title">
+      <img class="cover-img" src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Kyushu cover">
+      <div>
+        <h1>【九州快樂自由行】— 2025.02.20 (四) - 2025.02.25 (二)</h1>
+        <p class="lead">福岡 ✕ 熊本 ✕ 由布院 — 行程手冊（手機友善 / 可列印）</p>
+        <div class="small" style="margin-top:8px">
+          作者：旅人小冊 · 用法：把這個檔案放到 GitHub repo 的根目錄，啟用 GitHub Pages（Branch：main / Folder：/root）
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="toc" aria-label="Day navigation">
+      <button class="day-btn active" data-day="1">Day 1 • 飛去福岡</button>
+      <button class="day-btn" data-day="2">Day 2 • 由布院散步</button>
+      <button class="day-btn" data-day="3">Day 3 • 太宰府 & 天神</button>
+      <button class="day-btn" data-day="4">Day 4 • 柳川 & 熊本城</button>
+      <button class="day-btn" data-day="5">Day 5 • 阿蘇火山</button>
+      <button class="day-btn" data-day="6">Day 6 • 回家囉</button>
+    </nav>
+
+    <main>
+      <!-- 行程總覽 -->
+      <div class="overview">
+        <h3>行程總覽 Quick View</h3>
+        <ul>
+          <li><strong>Day 1</strong> 福岡市區、Shin Shin 拉麵</li>
+          <li><strong>Day 2</strong> 由布院散步（金鱗湖 & 湯之坪街道）</li>
+          <li><strong>Day 3</strong> 太宰府天滿宮 & 天神商圈購物、燒肉 肉や</li>
+          <li><strong>Day 4</strong> 柳川遊船 + 鰻魚飯、熊本城、馬肉料理 馬櫻</li>
+          <li><strong>Day 5</strong> 阿蘇火山 & 草千里騎馬、迴轉壽司 めっけもん / 牛深丸</li>
+          <li><strong>Day 6</strong> 福岡機場最後補貨，帶戰利品回家</li>
+        </ul>
+      </div>
+
+      <!-- Day 1 -->
+      <section class="day active" id="day-1">
+        <h2>Day 1｜2/20（四）飛去福岡 ✈️</h2>
+        <p class="date-note">重點：抵達九州、熟悉博多周邊、吃到第一碗拉麵。</p>
+        <div class="grid">
+          <div>
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=900&q=80" alt="Fukuoka Airport">
+              <div class="meta">
+                <h3>抵達福岡機場</h3>
+                <p>下機後領行李、辦好交通票券（IC 卡 / 地鐵一日券），再前往市區飯店。</p>
+                <p class="tagline">建議：可以先在機場超商補一點水和小零食。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=900&q=80" alt="Hakata Station">
+              <div class="meta">
+                <h3>前往福岡市區飯店 Check-in</h3>
+                <p>搭地鐵或巴士進博多 / 天神，放行李、簡單梳洗休息。</p>
+                <p class="tagline">🏠 住宿：福岡市區（博多 / 天神一帶）</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=900&q=80" alt="Shin Shin Ramen">
+              <div class="meta">
+                <h3>晚餐：Shin Shin 拉麵</h3>
+                <p>博多必吃名店，濃郁豚骨湯頭＋細麵，初訪九州的完美開場。</p>
+                <p class="tagline">🍜 推薦：拉麵 + 一口餃子組合。</p>
+                <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Shin+Shin+Ramen+Hakata" target="_blank" rel="noreferrer">
+                  開啟地圖
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary">
+            <h4>今日重點</h4>
+            <ul>
+              <li>熟悉飯店周邊、超商位置。</li>
+              <li>確認隔天前往由布院的交通時間。</li>
+              <li>第一天不要排太滿，讓身體先適應。</li>
+            </ul>
+            <h4>小提醒</h4>
+            <ul>
+              <li>記得把 Suica / ICOCA 等交通卡加值。</li>
+              <li>可以先查 Shin Shin 是否需要排隊，避開尖峰。</li>
+            </ul>
+            <div>
+              <span class="pill">福岡市區</span>
+              <span class="pill">拉麵</span>
+              <span class="pill">抵達日</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Day 2 -->
+      <section class="day" id="day-2">
+        <h2>Day 2｜2/21（五）由布院散步 🌿</h2>
+        <p class="date-note">重點：金鱗湖晨霧＋湯之坪街道散策，晚上超市開趴。</p>
+        <div class="grid">
+          <div>
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80" alt="Yufuin Station">
+              <div class="meta">
+                <h3>前往由布院</h3>
+                <p>從福岡搭 JR / 巴士前往由布院，車程約 2 小時，可沿路看山景。</p>
+                <p class="tagline">可搭乘：由布院之森（若有訂到票）。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1503899036084-7e55386a3a3a?auto=format&fit=crop&w=900&q=80" alt="Kinrin Lake">
+              <div class="meta">
+                <h3>金鱗湖晨霧散步</h3>
+                <p>清晨的金鱗湖會有淡淡霧氣，非常適合拍照、走走放空。</p>
+                <p class="tagline">✨ 氣溫較低，記得帶保暖外套。</p>
+                <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Kinrin+Lake" target="_blank" rel="noreferrer">
+                  開啟地圖
+                </a>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1545652988-9e0621f48a96?auto=format&fit=crop&w=900&q=80" alt="Yunotsubo Street">
+              <div class="meta">
+                <h3>湯之坪街道散策</h3>
+                <p>沿路都是甜點、布丁、可樂餅、小雜貨店，邊吃邊逛超放鬆。</p>
+                <p class="tagline">推薦：奶油布丁、Cheese 系甜點。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?auto=format&fit=crop&w=900&q=80" alt="Japanese Supermarket">
+              <div class="meta">
+                <h3>晚餐：超市大採購</h3>
+                <p>回到福岡後，去超市掃貨：草莓、熟食、沙拉、炸雞、啤酒帶回飯店開趴。</p>
+                <p class="tagline">🛒 草莓、生魚片便當 CP 值通常很高。</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary">
+            <h4>今日重點</h4>
+            <ul>
+              <li>行李建議輕便，方便在由布院街道走動。</li>
+              <li>預留時間拍照＋慢慢逛，不用趕行程。</li>
+            </ul>
+            <h4>住宿</h4>
+            <ul>
+              <li>今晚住宿：福岡市區（回到同一間飯店最省事）。</li>
+            </ul>
+            <div>
+              <span class="pill">由布院</span>
+              <span class="pill">金鱗湖</span>
+              <span class="pill">湯之坪街道</span>
+              <span class="pill">超市趴</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Day 3 -->
+      <section class="day" id="day-3">
+        <h2>Day 3｜2/22（六）拜拜 & 買爆 🛍️</h2>
+        <p class="date-note">重點：太宰府天滿宮祈願＋天神商圈瘋狂購物＋人氣燒肉。</p>
+        <div class="grid">
+          <div>
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1553701275-1d746fd9ad6f?auto=format&fit=crop&w=900&q=80" alt="Dazaifu Tenmangu">
+              <div class="meta">
+                <h3>太宰府天滿宮參拜</h3>
+                <p>求學業、資格考、工作運都很有名，也可以抽 omikuji 看運勢。</p>
+                <p class="tagline">必吃：梅枝餅，一人至少兩個起跳。</p>
+                <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Dazaifu+Tenmangu" target="_blank" rel="noreferrer">
+                  開啟地圖
+                </a>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=900&q=80" alt="Tenjin Shopping Area">
+              <div class="meta">
+                <h3>天神商圈瘋狂購物</h3>
+                <p>天神地下街、PARCO、Loft、Bic Camera、百貨公司一次逛好逛滿。</p>
+                <p class="tagline">🎁 建議：化妝品、藥妝、電器、伴手禮集中這天採購。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=900&q=80" alt="Yakiniku">
+              <div class="meta">
+                <h3>晚餐：人氣燒肉 肉や</h3>
+                <p>排隊名店，和牛＋啤酒，犒賞今天的戰鬥力。</p>
+                <p class="tagline">🥩 如果可以事先訂位會更安心。</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary">
+            <h4>今日重點</h4>
+            <ul>
+              <li>早上走參拜路線，下午到晚上專心購物。</li>
+              <li>購物袋可能變多，記得帶可折疊環保袋。</li>
+            </ul>
+            <h4>住宿</h4>
+            <ul>
+              <li>今晚住宿：福岡市區。</li>
+              <li>建議整理一下紀念品，分好要托運 / 手提。</li>
+            </ul>
+            <div>
+              <span class="pill">太宰府天滿宮</span>
+              <span class="pill">梅枝餅</span>
+              <span class="pill">天神商圈</span>
+              <span class="pill">燒肉</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Day 4 -->
+      <section class="day" id="day-4">
+        <h2>Day 4｜2/23（日）柳川 & 熊本城 🛶</h2>
+        <p class="date-note">重點：柳川遊船＋鰻魚飯，下午移動到熊本城，晚上馬肉料理。</p>
+        <div class="grid">
+          <div>
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1503899036084-7e55386a3a3a?auto=format&fit=crop&w=900&q=80" alt="Yanagawa Boat">
+              <div class="meta">
+                <h3>柳川遊船體驗</h3>
+                <p>坐在小船上緩緩穿過運河，船夫講解、唱歌，氣氛超悠哉。</p>
+                <p class="tagline">🛶 冬天記得保暖，部分船家會提供毛毯。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1617195737496-bc30194e957c?auto=format&fit=crop&w=900&q=80" alt="Unagi Don">
+              <div class="meta">
+                <h3>柳川鰻魚飯</h3>
+                <p>柳川名物，炭火烤鰻魚配白飯，油脂香氣十足。</p>
+                <p class="tagline">建議：遊船前或後就近找名店用餐。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1566954979172-eaba308acdf0?auto=format&fit=crop&w=900&q=80" alt="Kumamoto Castle">
+              <div class="meta">
+                <h3>移動前往熊本城</h3>
+                <p>搭 JR 或巴士往熊本，入住熊本市區飯店後前往熊本城散步拍照。</p>
+                <p class="tagline">🐻 有機會遇到熊本熊部長活動。</p>
+                <a class="maps-btn" href="https://www.google.com/maps/search/?api=1&query=Kumamoto+Castle" target="_blank" rel="noreferrer">
+                  開啟地圖
+                </a>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=900&q=80" alt="Horse Meat Cuisine">
+              <div class="meta">
+                <h3>晚餐：馬櫻（馬肉料理）</h3>
+                <p>熊本名物馬肉刺身、火鍋等，多數人是第一次嘗試的特別體驗。</p>
+                <p class="tagline">🍖 不敢生食的話也有熟食選擇。</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary">
+            <h4>今日重點</h4>
+            <ul>
+              <li>上午：柳川遊船 + 鰻魚飯。</li>
+              <li>下午：移動到熊本，逛熊本城周邊。</li>
+            </ul>
+            <h4>住宿</h4>
+            <ul>
+              <li>今晚住宿：熊本市區。</li>
+            </ul>
+            <div>
+              <span class="pill">柳川遊船</span>
+              <span class="pill">鰻魚飯</span>
+              <span class="pill">熊本城</span>
+              <span class="pill">馬肉料理</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Day 5 -->
+      <section class="day" id="day-5">
+        <h2>Day 5｜2/24（一）火山大冒險 🌋</h2>
+        <p class="date-note">重點：阿蘇火山 & 草千里騎馬，晚上迴轉壽司。</p>
+        <div class="grid">
+          <div>
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1526481280695-3c687fd543c0?auto=format&fit=crop&w=900&q=80" alt="Aso Volcano">
+              <div class="meta">
+                <h3>阿蘇火山一日遊</h3>
+                <p>欣賞火山口地形與大片草原景觀，天氣好時視野超廣。</p>
+                <p class="tagline">需留意當天是否有因火山氣體而封閉的情況。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=900&q=80" alt="Kusasenri Horse Riding">
+              <div class="meta">
+                <h3>草千里騎馬體驗</h3>
+                <p>在一望無際的草原上騎馬，風景超夢幻，非常適合拍照留念。</p>
+                <p class="tagline">🐴 建議穿長褲、包鞋，活動比較方便。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?auto=format&fit=crop&w=900&q=80" alt="Conveyor Belt Sushi">
+              <div class="meta">
+                <h3>晚餐：廻る寿司 めっけもん / 牛深丸</h3>
+                <p>回程後在熊本或福岡吃迴轉壽司，大量補充海鮮能量。</p>
+                <p class="tagline">🍣 可視動線安排看要住熊本或回福岡。</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary">
+            <h4>今日重點</h4>
+            <ul>
+              <li>一早出門前往阿蘇，建議跟一日團或自駕。</li>
+              <li>山上氣溫比平地低，務必帶夠保暖衣物。</li>
+            </ul>
+            <h4>住宿</h4>
+            <ul>
+              <li>今晚住宿：熊本 或 回福岡（依實際交通安排）。</li>
+            </ul>
+            <div>
+              <span class="pill">阿蘇火山</span>
+              <span class="pill">草千里</span>
+              <span class="pill">騎馬體驗</span>
+              <span class="pill">迴轉壽司</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Day 6 -->
+      <section class="day" id="day-6">
+        <h2>Day 6｜2/25（二）回家囉 🏠</h2>
+        <p class="date-note">重點：機場最後補貨，平安回家。</p>
+        <div class="grid">
+          <div>
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1534448311378-1e193fb2570e?auto=format&fit=crop&w=900&q=80" alt="Fukuoka Airport Shopping">
+              <div class="meta">
+                <h3>前往福岡機場</h3>
+                <p>依起飛時間從熊本 / 福岡出發，預留至少 2 小時以上到機場。</p>
+                <p class="tagline">記得確認是否需要先退稅或辦理托運。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1534709153997-d665246165ad?auto=format&fit=crop&w=900&q=80" alt="Airport Duty Free">
+              <div class="meta">
+                <h3>機場最後補貨</h3>
+                <p>免稅店補齊最後的零食、酒類、禮盒，順便買幾樣自己想留著吃的。</p>
+                <p class="tagline">🎁 小技巧：有些伴手禮在機場反而比較齊＆一次打包。</p>
+              </div>
+            </div>
+
+            <div class="spot">
+              <img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?auto=format&fit=crop&w=900&q=80" alt="Back Home">
+              <div class="meta">
+                <h3>帶著戰利品回家</h3>
+                <p>整理護照、登機證，準備回家休息，開始期待下一趟旅程。</p>
+                <p class="tagline">❤️ 回家後記得好好備份照片。</p>
+              </div>
+            </div>
+          </div>
+
+          <aside class="summary">
+            <h4>今日流程</h4>
+            <ul>
+              <li>Check-out → 前往機場。</li>
+              <li>機場逛免稅店 → 登機回家。</li>
+            </ul>
+            <h4>小提醒</h4>
+            <ul>
+              <li>液體 / 酒類注意隨身行李限制。</li>
+              <li>戰利品太多時，行李重量可能需要特別注意。</li>
+            </ul>
+            <div>
+              <span class="pill">機場補貨</span>
+              <span class="pill">返家</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      建議：把圖片改成自己拍的照片或放到 repo 的 /images 資料夾，並修改 <code>img</code> 的 <code>src</code> 指向相對路徑；<br>
+      若要快速上線，可直接使用此 HTML（遠端圖片）並在 GitHub Pages 啟用後查看。<br>
+      —— 祝旅程愉快・一路順風！
+    </footer>
+  </div>
+
+  <script>
+    // Day navigation
+    document.querySelectorAll('.day-btn').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        document.querySelectorAll('.day-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const d = btn.getAttribute('data-day');
+        document.querySelectorAll('.day').forEach(section=>section.classList.remove('active'));
+        const target = document.getElementById('day-'+d);
+        if(target) target.classList.add('active');
+        window.scrollTo({top:0,behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
